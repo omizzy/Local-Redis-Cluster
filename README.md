@@ -265,7 +265,7 @@ M: e902fc42f1784c5c7b3147697e72c6a8b001bda1 127.0.0.1:1102
 done
 ```
 
-The command `wait`s until you <kbd>Ctrl</kbd> + <kbd>c</kbd>
+The command `wait`s until you <kbd>Ctrl</kbd> + <kbd>c</kbd>, which shuts down the clusters and stops the process.
 
 ### 4. Restart the cluster
 
@@ -304,7 +304,7 @@ done
 done
 ```
 
-The command `wait`s until you <kbd>Ctrl</kbd> + <kbd>c</kbd>
+The command `wait`s until you <kbd>Ctrl</kbd> + <kbd>c</kbd>, which shuts down the clusters and stops the process.
 
 ### 5. Destroy the cluster
 
