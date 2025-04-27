@@ -1,22 +1,18 @@
 # Local Redis Cluster
 
-
 ## Usage Guide
-
 
 Scripts to help a build redis cluster locally. Note that:
 * Each master node is assigned at least one replica.
 * The cluster command will determine the amount of masters and replicas based on the available nodes (the `number of nodes` you provide in the `generate-conf` command).
 * Recommended minimum amount of nodes 6.
 
-
 ### 0. Super quick start
 
 This command will start a cluster of 6 nodes using ports 9000 through 9005.
 
 ```console
-> ./bin/destroy.sh && echo -e "9000\n6" | ./bin/generate-conf.sh && ./bin/build.sh && yes yes | ./bin/init-run.sh
-
+./bin/destroy.sh && echo -e "9000\n6" | ./bin/generate-conf.sh && ./bin/build.sh && yes yes | ./bin/init-run.sh
 ```
 
 <kbd>Ctrl</kbd> + <kbd>c</kbd>  stops the cluster
@@ -104,9 +100,7 @@ S: 9a674c8951e85a8ea77f9c4daf6afb85027d952f 127.0.0.1:9004
 [OK] All 16384 slots covered.
 ```
 
-
 You are done, but if you want to configure the cluster a bit more manually ignore this step, and continue the next steps. Otherwise, you can stop here.
-
 
 ### 1. Create a base config file
 
@@ -117,14 +111,12 @@ The cluster will use a consecutive number of ports.
 The remaining ports will be computed from the number of nodes for the cluster. 
 
 ```console
->  local-redis-clusters ./bin/generate-conf.sh
+local-redis-clusters ./bin/generate-conf.sh
 ```
-
 
 Example:
 
 Port 1100 was selected with 10 nodes. so ports 1100 through 1109 will be used.
-
 
 ```console
 >  local-redis-clusters ./bin/generate-conf.sh
@@ -158,7 +150,7 @@ Generating redis config files..
 This command starts the redis servers, and clusters them up. Only use this once for every build of the cluster.
 
 ```console
-> ./bin/init-run.sh
+./bin/init-run.sh
 ```
 
 Example:
@@ -232,18 +224,18 @@ M: 9289d4c4e612debe5cfe753fda96f448c549a534 127.0.0.1:9002
 
 The command `wait`s until you <kbd>Ctrl</kbd> + <kbd>c</kbd>
 
-
 ### 4. Restart the cluster
 
 If you <kbd>Ctrl</kbd> + <kbd>c</kbd> the `init-run.sh` command, you can restart the cluster with
 
 ```console
-> ./bin/run.sh
+./bin/run.sh
 ```
 
 Example:
 
 ```console
+> ./bin/run.sh
 Launching redis servers..
 Launching redis server 9000
 sent PING......PONG
@@ -262,10 +254,17 @@ done
 
 The command `wait`s until you <kbd>Ctrl</kbd> + <kbd>c</kbd>
 
-
 ### 5. Destroy the cluster
 
+
 The following command destroys the cluster's resources, make sure the cluster is not running during this time.
+
+```console
+./bin/destroy.sh
+```
+
+
+Example:
 
 ```console
 > ./bin/destroy.sh
@@ -274,9 +273,6 @@ Deleting dirs..
 
 You can then rebuild starting at [Super quick start](#0-super-quick-start) or [first step](#1-create-a-base-config-file)
 
-
-
 ## References
 
 * [4.1 Exercise - Creating a Redis Cluster](https://redis.io/learn/operate/redis-at-scale/scalability/exercise-1)
-
