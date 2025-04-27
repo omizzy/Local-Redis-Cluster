@@ -135,14 +135,24 @@ file generated in ./work/conf
 This command will create the subdirectories and config files under the `./work` directory
 
 ```console
+./bin/build.sh
+```
+
+Example:
+
+```console
 > ./bin/build.sh
 Generating redis config files..
-./work/9000
-./work/9001
-./work/9002
-./work/9003
-./work/9004
-./work/9005
+./work/1100
+./work/1101
+./work/1102
+./work/1103
+./work/1104
+./work/1105
+./work/1106
+./work/1107
+./work/1108
+./work/1109
 ```
 
 ### 3. Run the server starter AND clustering command
@@ -158,68 +168,101 @@ Example:
 ```console
 > ./bin/init-run.sh
 Launching redis servers..
-Launching redis server 9000
-sent PING.........PONG
-Launching redis server 9001
+Launching redis server 1100
 sent PING........PONG
-Launching redis server 9002
-sent PING.........PONG
-Launching redis server 9003
-sent PING.........PONG
-Launching redis server 9004
+Launching redis server 1101
 sent PING........PONG
-Launching redis server 9005
+Launching redis server 1102
+sent PING........PONG
+Launching redis server 1103
+sent PING.........PONG
+Launching redis server 1104
+sent PING.........PONG
+Launching redis server 1105
+sent PING.........PONG
+Launching redis server 1106
+sent PING........PONG
+Launching redis server 1107
+sent PING.........PONG
+Launching redis server 1108
+sent PING........PONG
+Launching redis server 1109
 sent PING........PONG
 Creating cluster..
->>> Performing hash slots allocation on 6 nodes...
-Master[0] -> Slots 0 - 5460
-Master[1] -> Slots 5461 - 10922
-Master[2] -> Slots 10923 - 16383
-Adding replica 127.0.0.1:9004 to 127.0.0.1:9000
-Adding replica 127.0.0.1:9005 to 127.0.0.1:9001
-Adding replica 127.0.0.1:9003 to 127.0.0.1:9002
+>>> Performing hash slots allocation on 10 nodes...
+Master[0] -> Slots 0 - 3276
+Master[1] -> Slots 3277 - 6553
+Master[2] -> Slots 6554 - 9829
+Master[3] -> Slots 9830 - 13106
+Master[4] -> Slots 13107 - 16383
+Adding replica 127.0.0.1:1106 to 127.0.0.1:1100
+Adding replica 127.0.0.1:1107 to 127.0.0.1:1101
+Adding replica 127.0.0.1:1108 to 127.0.0.1:1102
+Adding replica 127.0.0.1:1109 to 127.0.0.1:1103
+Adding replica 127.0.0.1:1105 to 127.0.0.1:1104
 >>> Trying to optimize slaves allocation for anti-affinity
 [WARNING] Some slaves are in the same host as their master
-M: da32eb2ed1196e67de6cc23a0866553b83f68c87 127.0.0.1:9000
-   slots:[0-5460] (5461 slots) master
-M: 8c0a0c1fcb5733b1cfc8de0037b007f8ffe96ebf 127.0.0.1:9001
-   slots:[5461-10922] (5462 slots) master
-M: 9289d4c4e612debe5cfe753fda96f448c549a534 127.0.0.1:9002
-   slots:[10923-16383] (5461 slots) master
-S: 8d9bcdc164535b9a0738871697da92156af934a8 127.0.0.1:9003
-   replicates 8c0a0c1fcb5733b1cfc8de0037b007f8ffe96ebf
-S: bc95a530f353987988fa086f7e3aafa4b43213a8 127.0.0.1:9004
-   replicates 9289d4c4e612debe5cfe753fda96f448c549a534
-S: f83154eb29183b939f1c9b483bddc708dcc1e4b5 127.0.0.1:9005
-   replicates da32eb2ed1196e67de6cc23a0866553b83f68c87
+M: ef947ff4613a050e58c3f66163c61be44f7763fe 127.0.0.1:1100
+   slots:[0-3276] (3277 slots) master
+M: 48c036806b48e791f0ab85d3ebe7ffc49b25ca71 127.0.0.1:1101
+   slots:[3277-6553] (3277 slots) master
+M: e902fc42f1784c5c7b3147697e72c6a8b001bda1 127.0.0.1:1102
+   slots:[6554-9829] (3276 slots) master
+M: 0552b10e2f13b0015b900bd35d31e21ca729c1b8 127.0.0.1:1103
+   slots:[9830-13106] (3277 slots) master
+M: c87870eb47419da4010753b4364d30833a040225 127.0.0.1:1104
+   slots:[13107-16383] (3277 slots) master
+S: f30e65ff6f31a80a9c9672438e319f99d9310c95 127.0.0.1:1105
+   replicates c87870eb47419da4010753b4364d30833a040225
+S: 9b9b942a1d522566a14e0454986e7f0e3a33dcfd 127.0.0.1:1106
+   replicates 0552b10e2f13b0015b900bd35d31e21ca729c1b8
+S: 30a0aea8b2816353ec1968c062e7ca23d318b095 127.0.0.1:1107
+   replicates ef947ff4613a050e58c3f66163c61be44f7763fe
+S: acbcee57a5a5c330308c99970af49499a3c1b9b3 127.0.0.1:1108
+   replicates e902fc42f1784c5c7b3147697e72c6a8b001bda1
+S: cca624b4791ba2348f8707419fe0292b71fee8a0 127.0.0.1:1109
+   replicates 48c036806b48e791f0ab85d3ebe7ffc49b25ca71
 Can I set the above configuration? (type 'yes' to accept): >>> Nodes configuration updated
 >>> Assign a different config epoch to each node
 >>> Sending CLUSTER MEET messages to join the cluster
 Waiting for the cluster to join
-
->>> Performing Cluster Check (using node 127.0.0.1:9000)
-M: da32eb2ed1196e67de6cc23a0866553b83f68c87 127.0.0.1:9000
-   slots:[0-5460] (5461 slots) master
+..
+>>> Performing Cluster Check (using node 127.0.0.1:1100)
+M: ef947ff4613a050e58c3f66163c61be44f7763fe 127.0.0.1:1100
+   slots:[0-3276] (3277 slots) master
    1 additional replica(s)
-S: bc95a530f353987988fa086f7e3aafa4b43213a8 127.0.0.1:9004
-   slots: (0 slots) slave
-   replicates 9289d4c4e612debe5cfe753fda96f448c549a534
-S: 8d9bcdc164535b9a0738871697da92156af934a8 127.0.0.1:9003
-   slots: (0 slots) slave
-   replicates 8c0a0c1fcb5733b1cfc8de0037b007f8ffe96ebf
-M: 8c0a0c1fcb5733b1cfc8de0037b007f8ffe96ebf 127.0.0.1:9001
-   slots:[5461-10922] (5462 slots) master
+M: 0552b10e2f13b0015b900bd35d31e21ca729c1b8 127.0.0.1:1103
+   slots:[9830-13106] (3277 slots) master
    1 additional replica(s)
-S: f83154eb29183b939f1c9b483bddc708dcc1e4b5 127.0.0.1:9005
+S: f30e65ff6f31a80a9c9672438e319f99d9310c95 127.0.0.1:1105
    slots: (0 slots) slave
-   replicates da32eb2ed1196e67de6cc23a0866553b83f68c87
-M: 9289d4c4e612debe5cfe753fda96f448c549a534 127.0.0.1:9002
-   slots:[10923-16383] (5461 slots) master
+   replicates c87870eb47419da4010753b4364d30833a040225
+S: cca624b4791ba2348f8707419fe0292b71fee8a0 127.0.0.1:1109
+   slots: (0 slots) slave
+   replicates 48c036806b48e791f0ab85d3ebe7ffc49b25ca71
+S: 30a0aea8b2816353ec1968c062e7ca23d318b095 127.0.0.1:1107
+   slots: (0 slots) slave
+   replicates ef947ff4613a050e58c3f66163c61be44f7763fe
+S: acbcee57a5a5c330308c99970af49499a3c1b9b3 127.0.0.1:1108
+   slots: (0 slots) slave
+   replicates e902fc42f1784c5c7b3147697e72c6a8b001bda1
+M: c87870eb47419da4010753b4364d30833a040225 127.0.0.1:1104
+   slots:[13107-16383] (3277 slots) master
+   1 additional replica(s)
+M: 48c036806b48e791f0ab85d3ebe7ffc49b25ca71 127.0.0.1:1101
+   slots:[3277-6553] (3277 slots) master
+   1 additional replica(s)
+S: 9b9b942a1d522566a14e0454986e7f0e3a33dcfd 127.0.0.1:1106
+   slots: (0 slots) slave
+   replicates 0552b10e2f13b0015b900bd35d31e21ca729c1b8
+M: e902fc42f1784c5c7b3147697e72c6a8b001bda1 127.0.0.1:1102
+   slots:[6554-9829] (3276 slots) master
    1 additional replica(s)
 [OK] All nodes agree about slots configuration.
 >>> Check for open slots...
 >>> Check slots coverage...
 [OK] All 16384 slots covered.
+done
 ```
 
 The command `wait`s until you <kbd>Ctrl</kbd> + <kbd>c</kbd>
@@ -237,18 +280,27 @@ Example:
 ```console
 > ./bin/run.sh
 Launching redis servers..
-Launching redis server 9000
+Launching redis server 1100
 sent PING......PONG
-Launching redis server 9001
+Launching redis server 1101
 sent PING......PONG
-Launching redis server 9002
+Launching redis server 1102
 sent PING......PONG
-Launching redis server 9003
+Launching redis server 1103
 sent PING......PONG
-Launching redis server 9004
-sent PING............PONG
-Launching redis server 9005
+Launching redis server 1104
+sent PING......PONG
+Launching redis server 1105
+sent PING......PONG
+Launching redis server 1106
 sent PING...........PONG
+Launching redis server 1107
+sent PING.............PONG
+Launching redis server 1108
+sent PING...............PONG
+Launching redis server 1109
+sent PING...............PONG
+done
 done
 ```
 
@@ -256,13 +308,11 @@ The command `wait`s until you <kbd>Ctrl</kbd> + <kbd>c</kbd>
 
 ### 5. Destroy the cluster
 
-
 The following command destroys the cluster's resources, make sure the cluster is not running during this time.
 
 ```console
 ./bin/destroy.sh
 ```
-
 
 Example:
 
