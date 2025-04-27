@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-examples",
+  "version": "1.0.0",
+  "description": "Examples of how to use a redis cluster in nodejs",
+  "keywords": [
+    "nodejs",
+    "redis",
+    "ioredis"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "key-value-file": "^1.0.10",
+    "redis": "^4.7.0"
+  }
+}
