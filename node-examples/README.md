@@ -16,6 +16,7 @@ Make sure you have a local redis cluster running before executin this program..
 4. Then retrieves the value using the provided echo.
 5. Go to 2.
 
+<kbd>Ctrl</kbd> + <kbd>c</kbd>  stops the program.
 
 ## 3. Run it
 
