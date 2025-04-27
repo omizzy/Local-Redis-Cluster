@@ -1,5 +1,8 @@
 # Local Redis Cluster
 
+> :round_pushpin: **Note:** Once you build a redis cluster, see the `node-examples` directory. It contains a program on how to reference the cluster within nodejs
+
+
 ## Usage Guide
 
 Scripts to help a build redis cluster locally. Note that:
