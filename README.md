@@ -6,7 +6,7 @@
 
 Scripts to help a build redis cluster locally. Note that:
 * Each master node is assigned at least one replica.
-* The cluster command will determine the amount of masters and final replicas based on the available nodes (the `number of nodes` you provide in the `generate-conf` command).
+* The cluster command will determine the amount of masters and replicas based on the available nodes (the `number of nodes` you provide in the `generate-conf` command).
 * Recommended minimum amount of nodes 6.
 
 
