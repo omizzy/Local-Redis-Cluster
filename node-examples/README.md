@@ -1,12 +1,14 @@
-# Example Echo Program
+# Exanple programs in nodejs
 
-## 1. Setup
+Setup the project first so that the programs can execute correctly..
 
 ```console
 npm install
 ```
 
-## 2. About
+## Example Echo Program
+
+###  About
 
 Make sure you have a local redis cluster running before executing this program..
 
@@ -18,8 +20,23 @@ Make sure you have a local redis cluster running before executing this program..
 
 <kbd>Ctrl</kbd> + <kbd>c</kbd>  stops the program.
 
-## 3. Run it
+### Run it
 
 ```console
-node echo
+npm run echo
 ```
+
+## Example Slot Computer
+
+### About
+
+Make sure you have a local redis cluster running before executing this program..
+
+1. This program generates a set 100000 keys (key are also used as a value).
+2. Computes the slot for the key.
+3. Keeps track of this slot-to-keys mapping.
+3. Stores the key/value into the Redis cluster.
+
+Once all the keys are generated
+1. This program iterates over the unique set of slots computed.
+2. Issues a mult-delete operation at the Redis cluster for all the keys for each slot.
