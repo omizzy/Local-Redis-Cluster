@@ -40,3 +40,9 @@ Make sure you have a local redis cluster running before executing this program..
 Once all the keys are generated
 1. This program iterates over the unique set of slots computed.
 2. Issues a mult-delete operation at the Redis cluster for all the keys for each slot.
+
+### Run it
+
+```console
+npm run compute-slots
+```
