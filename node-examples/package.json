@@ -10,12 +10,13 @@
   "type": "module",
   "scripts": {
     "echo": "node src/echo.js",
-    "compute-slots": "node src/compute-slots.js"
+    "compute-slots": "node src/compute-slots.js",
+    "scan-del": "node src/scan-del.js"
   },
   "dependencies": {
     "cluster-key-slot": "^1.1.2",
     "key-value-file": "^1.0.10",
-    "redis": "^4.7.0",
+    "redis": "^5.0.0",
     "uuid": "^11.1.0"
   }
 }
